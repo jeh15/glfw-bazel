@@ -1,0 +1,10 @@
+"""
+    Bazel module for GLFW
+"""
+module(
+    name = "glfw-bazel",
+)
+
+# GLFW Extension:
+glfw_extension = use_extension("//third_party:extensions.bzl", "glfw_extension")
+use_repo(glfw_extension, "archive_glfw")

@@ -1,0 +1,20 @@
+package(default_visibility = ["//visibility:public"])
+
+DEFINES = [
+    "_GLFW_HAS_XF86VM",
+    "_GLFW_X11",
+]
+srcs = glob(["src/*.c"])
+hdrs = glob([
+    "src/*.h",
+    "include/GLFW/*.h",
+])
+
+cc_library(
+    name = "glfw",
+    srcs = srcs,
+    hdrs = hdrs,
+    includes = ['include'],
+    defines = DEFINES,
+    linkopts = ["-lX11"],
+)
